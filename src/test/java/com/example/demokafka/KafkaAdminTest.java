@@ -18,7 +18,8 @@ public class KafkaAdminTest {
      */
     public static AdminClient initAdminClient() {
         Properties properties = new Properties();
-        properties.setProperty(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, "47.100.86.147:9092,47.100.86.147:9093,47.100.86.147:9094");
+        properties.setProperty(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG,
+            "47.101.187.117:9092,47.101.187.117:9093,47.101.187.117:9094");
         AdminClient adminClient = AdminClient.create(properties);
         return adminClient;
     }
@@ -31,7 +32,7 @@ public class KafkaAdminTest {
         AdminClient adminClient = initAdminClient();
         //指定分区数量，副本数量
         NewTopic newTopic = new NewTopic(TOPIC_NAME, 6, (short) 3);
-        CreateTopicsResult createTopicsResult = adminClient.createTopics(Arrays.asList(newTopic));
+        CreateTopicsResult createTopicsResult = adminClient.createTopics(List.of(newTopic));
         try {
             //future等待创建，成功则不会有任何报错
             createTopicsResult.all().get();
