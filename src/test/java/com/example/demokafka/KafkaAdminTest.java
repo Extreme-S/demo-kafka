@@ -9,7 +9,7 @@ import java.util.concurrent.ExecutionException;
 
 public class KafkaAdminTest {
 
-    private static final String TOPIC_NAME = "demo-cluster-topic-1";
+    private static final String TOPIC_NAME = "user.register.topic";
 
     /**
      * 设置admin 客户端
